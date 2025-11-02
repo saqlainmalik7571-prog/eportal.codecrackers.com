@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      /* 🌌 Starry night hacker background */
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(ellipse at bottom, #020b0f 0%, #000 100%);
+        overflow-x: hidden;
+        color: #00ffcc;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .stars,
+      .twinkling {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 0;
+      }
+
+      .stars {
+        background: transparent
+          url("https://www.transparenttextures.com/patterns/stardust.png")
+          repeat;
+        animation: moveStars 200s linear infinite;
+        opacity: 0.4;
+      }
+
+      .twinkling {
+        background: transparent
+          url("https://www.transparenttextures.com/patterns/tiny-crosses.png")
+          repeat;
+        animation: twinkle 3s ease-in-out infinite alternate;
+        opacity: 0.2;
+      }
+
+      @keyframes moveStars {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: -10000px 5000px;
+        }
+      }
+
+      @keyframes twinkle {
+        0% {
+          opacity: 0.1;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+
+      /* 💡 Hacker neon form */
+      form {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 360px;
+        background: rgba(0, 20, 20, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 25px 20px;
+        text-align: center;
+        border: 1px solid #00ffcc;
+        box-shadow: 0 0 20px #00ffcc, 0 0 60px rgba(0, 255, 200, 0.4);
+        opacity: 0;
+        transform: translateY(-50px);
+        animation: fadeIn 1s ease forwards;
+        margin-bottom: 20px;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      form h1 {
+        color: #00ffcc;
+        margin-bottom: 10px;
+        font-size: 24px;
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+        border-bottom: 2px solid #00ffaa;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      form h3 {
+        color: #8affd1;
+        margin-bottom: 20px;
+        font-weight: 400;
+        text-shadow: 0 0 10px #00ffcc;
+        font-size: 16px;
+      }
+
+      input {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px;
+        border: 1px solid #00ffaa;
+        border-radius: 20px;
+        outline: none;
+        background: rgba(0, 0, 0, 0.4);
+        color: #00ffcc;
+        text-align: center;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 5px #00ffaa;
+      }
+
+      input::placeholder {
+        color: #66ffe0;
+      }
+
+      input:focus {
+        box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffaa;
+        transform: scale(1.03);
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      button {
+        width: 80%;
+        margin-top: 15px;
+        padding: 12px;
+        border: 1px solid #00ffaa;
+        border-radius: 25px;
+        background: transparent;
+        color: #00ffcc;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        text-shadow: 0 0 5px #00ffcc;
+        box-shadow: 0 0 10px #00ffaa inset, 0 0 15px #00ffaa;
+      }
+
+      button:hover {
+        background: #00ffaa22;
+        transform: scale(1.05);
+        box-shadow: 0 0 25px #00ffaa, 0 0 40px #00ffcc;
+        text-shadow: 0 0 15px #00ffcc;
+      }
+
+      /* ✨ Welcome section */
+      .col1 {
+        position: relative;
+        z-index: 2;
+        max-width: 400px;
+        background: rgba(0, 10, 10, 0.3);
+        padding: 20px;
+        border-radius: 15px;
+        border: 1px solid #00ffcc;
+        box-shadow: 0 0 20px #00ffcc55;
+        margin-bottom: 25px;
+      }
+
+      .col1 h1 {
+        font-size: 22px;
+        color: #00ffcc;
+        text-shadow: 0 0 10px #00ffcc;
+      }
+
+      .col1 p {
+        font-size: 14px;
+        color: #8affd1;
+        line-height: 1.5;
+      }
+
+      /* 📱 Mobile adjustments */
+      @media (max-width: 480px) {
+        form {
+          padding: 20px 15px;
+        }
+
+        input {
+          font-size: 13px;
+        }
+
+        .col1 h1 {
+          font-size: 20px;
+        }
+
+        .col1 p {
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="col1">
+      <h1>Welcome to Code Crackers Online Academy!</h1>
+      <p><strong>Turn Your Passion Into a Powerful Skill!</strong></p>
+      <p>
+        Take the first step toward success — submit your registration today.<br />
+        Our team will reach out to guide you on your learning journey.
+      </p>
+      <p>
+        <em>Message from:</em><br />
+        <strong>Muhammad Saqlain Iqbal</strong><br />
+        <span>(Founder & CEO, Code Crackers Online Academy)</span>
+      </p>
+    </div>
+
+    <form>
+      <h1>Registration Form</h1>
+      <h3>Sign In & Sign Up</h3>
+      <input type="text" placeholder="First Name" />
+      <input type="text" placeholder="Last Name" />
+      <input type="text" placeholder="Your Education" />
+      <input type="number" placeholder="Your CNIC" />
+      <input type="email" placeholder="Your Email" />
+      <input type="password" placeholder="Create Password" />
+      <button
+        type="button"
+        id="demo"
+        onclick='this.innerHTML = "Submitted ✅"'
+      >
+        Submit
+      </button>
+    </form>
+  </body>
+</html>
